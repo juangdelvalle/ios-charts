@@ -238,7 +238,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
     internal func drawYLabels(context context: CGContext, fixedPosition: CGFloat, offset: CGFloat, textAlign: NSTextAlignment)
     {
         let labelFont = _yAxis.labelFont
-        let labelTextColor = _yAxis.labelTextColor
+        var labelTextColor = _yAxis.labelTextColor
         
         let valueToPixelMatrix = transformer.valueToPixelMatrix
         
@@ -247,6 +247,16 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
         for (var i = 0; i < _yAxis.entryCount; i++)
         {
             let text = _yAxis.getFormattedLabel(i)
+            
+            if _yAxis.isShowOnlyMinMaxAndMaintainGridEnabled {
+                
+                if i == 1 || i == _yAxis.entryCount - 1 {
+                    labelTextColor = _yAxis.labelTextColor
+                } else {
+                    labelTextColor = .whiteColor()
+                }
+                
+            }
             
             if (!_yAxis.isDrawTopYLabelEntryEnabled && i >= _yAxis.entryCount - 1)
             {

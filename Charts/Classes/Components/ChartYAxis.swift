@@ -47,6 +47,9 @@ public class ChartYAxis: ChartAxisBase
     /// if true, the y-labels show only the minimum and maximum value
     public var showOnlyMinMaxEnabled = false
     
+    /// if true, the y-labels show only the minimum and maximum value
+    public var showOnlyMinMaxAndMaintainGridEnabled = false
+    
     /// flag that indicates if the axis is inverted or not
     public var inverted = false
     
@@ -240,7 +243,9 @@ public class ChartYAxis: ChartAxisBase
     /// - returns: true if focing the y-label count is enabled. Default: false
     public var isForceLabelsEnabled: Bool { return forceLabelsEnabled }
 
-    public var isShowOnlyMinMaxEnabled: Bool { return showOnlyMinMaxEnabled; }
+    public var isShowOnlyMinMaxEnabled: Bool { return showOnlyMinMaxEnabled }
+    
+    public var isShowOnlyMinMaxAndMaintainGridEnabled: Bool { return showOnlyMinMaxAndMaintainGridEnabled }
     
     public var isDrawTopYLabelEntryEnabled: Bool { return drawTopYLabelEntryEnabled; }
 }
