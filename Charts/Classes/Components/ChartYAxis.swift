@@ -220,7 +220,15 @@ public class ChartYAxis: ChartAxisBase
             return ""
         }
         
-        return (valueFormatter ?? _defaultValueFormatter).stringFromNumber(entries[index])!
+        let entry: Double
+        
+        if (entries[index] % 2) != 0 {
+            entry = ceil(entries[index])
+        } else {
+            entry = entries[index]
+        }
+        
+        return (valueFormatter ?? _defaultValueFormatter).stringFromNumber(entry)!
     }
     
     /// - returns: true if this axis needs horizontal offset, false if no offset is needed.
