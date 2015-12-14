@@ -251,7 +251,19 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
             if _yAxis.isShowOnlyMinMaxAndMaintainGridEnabled {
                 
                 if i == 1 || i == _yAxis.entryCount - 1 {
-                    labelTextColor = _yAxis.labelTextColor
+                    
+                    if _yAxis.entries[_yAxis.entryCount - 1] == 1.0 {
+                        if i != _yAxis.entryCount - 1 {
+                            print("no entré")
+                            labelTextColor = .whiteColor()
+                        } else {
+                            print("entre")
+                            labelTextColor = _yAxis.labelTextColor
+                        }
+                    } else {
+                        labelTextColor = _yAxis.labelTextColor
+                    }
+                    
                 } else {
                     labelTextColor = .whiteColor()
                 }
