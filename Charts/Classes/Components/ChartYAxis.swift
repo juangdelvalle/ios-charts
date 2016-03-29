@@ -111,9 +111,10 @@ public class ChartYAxis: ChartAxisBase
         super.init()
         
         _defaultValueFormatter.minimumIntegerDigits = 1
-        _defaultValueFormatter.maximumFractionDigits = 1
-        _defaultValueFormatter.minimumFractionDigits = 1
+        _defaultValueFormatter.maximumFractionDigits = 0
+        _defaultValueFormatter.minimumFractionDigits = 0
         _defaultValueFormatter.usesGroupingSeparator = true
+        _defaultValueFormatter.generatesDecimalNumbers = false
         self.yOffset = 0.0
     }
     
@@ -124,9 +125,10 @@ public class ChartYAxis: ChartAxisBase
         _axisDependency = position
         
         _defaultValueFormatter.minimumIntegerDigits = 1
-        _defaultValueFormatter.maximumFractionDigits = 1
-        _defaultValueFormatter.minimumFractionDigits = 1
+        _defaultValueFormatter.maximumFractionDigits = 0
+        _defaultValueFormatter.minimumFractionDigits = 0
         _defaultValueFormatter.usesGroupingSeparator = true
+        _defaultValueFormatter.generatesDecimalNumbers = false
         self.yOffset = 0.0
     }
     
@@ -228,7 +230,8 @@ public class ChartYAxis: ChartAxisBase
             entry = entries[index]
         }
         
-        return (valueFormatter ?? _defaultValueFormatter).stringFromNumber(entry)!
+        return String(format: "%g", entry)
+        
     }
     
     /// - returns: true if this axis needs horizontal offset, false if no offset is needed.
