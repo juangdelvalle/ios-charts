@@ -623,19 +623,43 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
         {
             if !self.isHighLightPerTapEnabled { return }
             
-            let h = getHighlightByTouchPoint(recognizer.locationInView(self))
+            let location = recognizer.locationInView(self)
+            var h = getHighlightByTouchPoint(location)
+            let colorTouch: UIColor = getPixelColorAtPoint(location)
+            let whiteColor: UIColor = UIColor(red: 255, green: 255, blue: 255, alpha: 255)
+            
+            if (colorTouch == whiteColor) {
+                h = nil
+            }
             
             if (h === nil || h!.isEqual(self.lastHighlighted))
             {
-                self.highlightValue(highlight: nil, callDelegate: true)
                 self.lastHighlighted = nil
+                self.highlightValue(highlight: nil, callDelegate: true)
             }
             else
             {
                 self.lastHighlighted = h
                 self.highlightValue(highlight: h, callDelegate: true)
             }
+            
         }
+    }
+    
+    func getPixelColorAtPoint(point:CGPoint) -> UIColor{
+        
+        let pixel = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
+        let context = CGBitmapContextCreate(pixel, 1, 1, 8, 4, colorSpace, bitmapInfo.rawValue)
+        
+        CGContextTranslateCTM(context, -point.x, -point.y)
+        self.layer.renderInContext(context!)
+        let color:UIColor = UIColor(red: CGFloat(pixel[0])/255.0, green: CGFloat(pixel[1])/255.0, blue: CGFloat(pixel[2])/255.0, alpha: CGFloat(pixel[3])/255.0)
+        
+        pixel.dealloc(4)
+        
+        return color
     }
     
     @objc private func doubleTapGestureRecognized(recognizer: UITapGestureRecognizer)
