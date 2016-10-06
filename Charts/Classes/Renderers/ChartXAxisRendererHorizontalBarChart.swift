@@ -160,7 +160,7 @@ open class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
         }
         else
         {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         var position = CGPoint(x: 0.0, y: 0.0)
@@ -209,7 +209,7 @@ open class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
         }
         else
         {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         if (xAxis.labelPosition == .top
@@ -279,7 +279,7 @@ open class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
             if (l.lineDashLengths != nil) {
                 context.setLineDash(phase: l.lineDashPhase, lengths: l.lineDashLengths!)
             } else {
-                context.setLineDash(phase: 0.0, lengths: [0.0])
+                context.setLineDash(phase: 0.0, lengths: [])
             }
             
             context.strokeLineSegments(between: _limitLineSegmentsBuffer)

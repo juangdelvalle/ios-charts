@@ -133,7 +133,7 @@ open class ChartYAxisRendererHorizontalBarChart: ChartYAxisRenderer
         }
         else
         {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
 
         if (yAxis.axisDependency == .left)
@@ -201,7 +201,7 @@ open class ChartYAxisRendererHorizontalBarChart: ChartYAxisRenderer
             if (yAxis.gridLineDashLengths != nil) {
                 context.setLineDash(phase: yAxis.gridLineDashPhase, lengths: yAxis.gridLineDashLengths)
             } else {
-                context.setLineDash(phase: 0.0, lengths: [0.0])
+                context.setLineDash(phase: 0.0, lengths: [])
             }
             
             // draw the horizontal grid
@@ -277,7 +277,7 @@ open class ChartYAxisRendererHorizontalBarChart: ChartYAxisRenderer
             if (l.lineDashLengths != nil) {
                 context.setLineDash(phase: l.lineDashPhase, lengths: l.lineDashLengths!)
             } else {
-                context.setLineDash(phase: 0.0, lengths: [0.0])
+                context.setLineDash(phase: 0.0, lengths: [])
             }
             
             context.strokeLineSegments(between: _limitLineSegmentsBuffer)

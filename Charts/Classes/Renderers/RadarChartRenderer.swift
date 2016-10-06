@@ -288,7 +288,7 @@ open class RadarChartRenderer: LineRadarChartRenderer
         if (data.highlightLineDashLengths != nil) {
             context.setLineDash(phase: data.highlightLineDashPhase, lengths: data.highlightLineDashLengths!)
         } else {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         let phaseX = animator.phaseX

@@ -145,7 +145,7 @@ open class ChartXAxisRendererBarChart: ChartXAxisRenderer
         }
         else
         {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         let valueToPixelMatrix = transformer.valueToPixelMatrix

@@ -242,7 +242,7 @@ open class ChartYAxisRenderer: ChartAxisRendererBase
         if (yAxis.axisLineDashLengths != nil) {
             context.setLineDash(phase: yAxis.axisLineDashPhase, lengths: yAxis.axisLineDashLengths)
         } else {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         if (yAxis.axisDependency == .left)
@@ -318,7 +318,7 @@ open class ChartYAxisRenderer: ChartAxisRendererBase
             if (yAxis.gridLineDashLengths != nil) {
                 context.setLineDash(phase: yAxis.gridLineDashPhase, lengths: yAxis.gridLineDashLengths)
             } else {
-                context.setLineDash(phase: 0.0, lengths: [0.0])
+                context.setLineDash(phase: 0.0, lengths: [])
             }
             
             let valueToPixelMatrix = transformer.valueToPixelMatrix
@@ -378,7 +378,7 @@ open class ChartYAxisRenderer: ChartAxisRendererBase
         if (yAxis.zeroLineDashLengths != nil) {
             context.setLineDash(phase: yAxis.zeroLineDashPhase, lengths: yAxis.zeroLineDashLengths!)
         } else {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         context.move(to: CGPoint(x: x1, y: y1))
@@ -430,7 +430,7 @@ open class ChartYAxisRenderer: ChartAxisRendererBase
             if (l.lineDashLengths != nil) {
                 context.setLineDash(phase: l.lineDashPhase, lengths: l.lineDashLengths!)
             } else {
-                context.setLineDash(phase: 0.0, lengths: [0.0])
+                context.setLineDash(phase: 0.0, lengths: [])
             }
             
             context.strokeLineSegments(between: _limitLineSegmentsBuffer) 

@@ -229,7 +229,7 @@ open class ChartYAxisRendererRadarChart: ChartYAxisRenderer
             if (l.lineDashLengths != nil) {
                 context.setLineDash(phase: l.lineDashPhase, lengths: l.lineDashLengths!)
             } else {
-                context.setLineDash(phase: 0.0, lengths: [0.0])
+                context.setLineDash(phase: 0.0, lengths: [])
             }
             
             let r = CGFloat(l.limit - chart.chartYMin) * factor

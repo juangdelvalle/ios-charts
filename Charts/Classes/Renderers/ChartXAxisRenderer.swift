@@ -115,7 +115,7 @@ open class ChartXAxisRenderer: ChartAxisRendererBase
         }
         else
         {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
 
         if (xAxis.labelPosition == .top
@@ -246,7 +246,7 @@ open class ChartXAxisRenderer: ChartAxisRendererBase
         if (xAxis.gridLineDashLengths != nil) {
             context.setLineDash(phase: xAxis.gridLineDashPhase, lengths: xAxis.gridLineDashLengths)
         } else {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         let valueToPixelMatrix = transformer.valueToPixelMatrix
@@ -324,7 +324,7 @@ open class ChartXAxisRenderer: ChartAxisRendererBase
         if (limitLine.lineDashLengths != nil) {
             context.setLineDash(phase: limitLine.lineDashPhase, lengths: limitLine.lineDashLengths!)
         } else {
-            context.setLineDash(phase: 0.0, lengths: [0.0])
+            context.setLineDash(phase: 0.0, lengths: [])
         }
         
         context.strokeLineSegments(between: _limitLineSegmentsBuffer)

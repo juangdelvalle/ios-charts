@@ -375,7 +375,7 @@ open class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
                 if (set.highlightLineDashLengths != nil) {
                     context.setLineDash(phase: set.highlightLineDashPhase, lengths: set.highlightLineDashLengths!)
                 } else {
-                    context.setLineDash(phase: 0.0, lengths: [0.0])
+                    context.setLineDash(phase: 0.0, lengths: [])
                 }
                 
                 let xIndex = high.xIndex; // get the x-position
